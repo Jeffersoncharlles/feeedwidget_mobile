@@ -4,10 +4,15 @@ import { Text, View } from 'react-native';
 import { feedBackTypes } from '../../utils/feedBackTypes';
 import { Copyright } from '../Copyright';
 import { Option } from '../Option';
+import { FeedBackType } from '../Widget';
 
 import { styles } from './styles';
 
-export const Options = () => {
+interface Props {
+    onFeedChange: (feedbackType: FeedBackType) => void;
+}
+
+export const Options = ({ onFeedChange }: Props) => {
 
     return (
         <View style={styles.container}>
@@ -18,7 +23,7 @@ export const Options = () => {
                 {Object.entries(feedBackTypes).map(([key, valor]) => {
 
                     return (
-                        <Option key={key} title={valor.title} image={valor.image.source} />
+                        <Option key={key} title={valor.title} image={valor.image.source} onPress={() => onFeedChange(key as FeedBackType)} />
                     )
                 })}
             </View>

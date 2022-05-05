@@ -13,11 +13,11 @@ export const Button = ({ isLoading, ...rest }: Props) => {
         <TouchableOpacity {...rest} style={styles.container}>
             {isLoading ?
                 <ActivityIndicator
-                    color={theme.colors.brand}
+                    color={theme.colors.text_on_brand_color}
                 />
                 :
                 <Text
-
+                    style={styles.title}
                 >Enviar Feedback</Text>}
         </TouchableOpacity>
     );

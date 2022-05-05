@@ -19,11 +19,20 @@ export const ScreenShot = ({ screenshot, onRemove, onShot }: Props) => {
             onPress={screenshot ? onRemove : onShot}
         >
             {screenshot ?
-                <Trash
-                    size={22}
-                    color={theme.colors.text_secondary}
-                    weight="fill"
-                    style={styles.removeIcon} />
+                <>
+                    <Image
+                        style={styles.Image}
+                        source={{ uri: screenshot }}
+
+                    />
+
+                    <Trash
+                        size={22}
+                        color={theme.colors.text_secondary}
+                        weight="fill"
+                        style={styles.removeIcon} />
+                </>
+
                 :
                 <Camera
                     size={24}
@@ -31,6 +40,7 @@ export const ScreenShot = ({ screenshot, onRemove, onShot }: Props) => {
                     weight="bold"
                     style={styles.camera}
                 />}
+
         </TouchableOpacity>
     );
 }

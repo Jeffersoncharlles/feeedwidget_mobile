@@ -19,5 +19,9 @@ export const styles = StyleSheet.create({
     },
     camera: {
 
+    },
+    Image: {
+        width: 40,
+        height: 40,
     }
 });
