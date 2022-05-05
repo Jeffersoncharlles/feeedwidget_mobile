@@ -32,13 +32,13 @@ export const Form = ({ feedbackType, onCanceled, onSend }: Props) => {
         }
         setIsLoading(true)
 
-        const screenshotBase64 = screenshot && FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' })
+        const screenshotBase64 = screenshot && await FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' })
 
         try {
 
             await api.post('/feedbacks', {
                 type: feedInfo.title,
-                screenshot: `data:image/png;base64,${screenshotBase64}`,
+                screenshot: `data:image/png;base64, ${screenshotBase64}`,
                 comment
             })
             onSend()
